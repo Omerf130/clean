@@ -1,0 +1,94 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.service-area {
+  @include section-padding;
+  background: $gradient-hero;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -25%;
+    width: 80%;
+    height: 200%;
+    background: radial-gradient(circle, rgba($white, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &__content {
+    @include container;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: $white;
+    margin-bottom: 16px;
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.1rem;
+    color: rgba($white, 0.9);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.8;
+
+    @include desktop {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__cities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__city {
+    background: rgba($white, 0.15);
+    backdrop-filter: blur(10px);
+    color: $white;
+    padding: 10px 24px;
+    border-radius: $radius-xl;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba($white, 0.2);
+    transition: all $transition-base;
+
+    &:hover {
+      background: rgba($white, 0.25);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__cta {
+    margin-top: 48px;
+
+    a {
+      @include button-base;
+      background: $white;
+      color: $primary;
+      font-size: 1.1rem;
+      padding: 16px 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+

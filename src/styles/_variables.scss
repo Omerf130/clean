@@ -1,0 +1,50 @@
+// Color Palette
+$primary: #0A84FF;
+$primary-dark: #0070e0;
+$secondary: #5BC0EB;
+$accent: #00C2A8;
+$text-dark: #1F2933;
+$text-medium: #4a5568;    // text-dark lightened 15%
+$text-light: #627282;     // text-dark lightened 20%
+$text-muted: #7b8a99;     // text-dark lightened 25%
+$text-faded: #94a1af;     // text-dark lightened 30%
+$text-placeholder: #adb9c6; // text-dark lightened 40%
+$bg-light: #F8FAFC;
+$white: #FFFFFF;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $primary 0%, $secondary 100%);
+$gradient-accent: linear-gradient(135deg, $accent 0%, $secondary 100%);
+$gradient-hero: linear-gradient(135deg, #0A84FF 0%, #00C2A8 50%, #5BC0EB 100%);
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+$shadow-card: 0 4px 20px rgba(10, 132, 255, 0.1);
+$shadow-card-hover: 0 8px 40px rgba(10, 132, 255, 0.2);
+
+// Typography
+$font-family: 'Heebo', sans-serif;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Border Radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$radius-xl: 30px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Container
+$container-max: 1200px;
+$container-padding: 20px;
+

@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.testimonials {
+  @include section-padding;
+  background: $white;
+
+  &__grid {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.testimonial-card {
+  @include card;
+  padding: 32px;
+  position: relative;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba($primary, 0.08);
+    line-height: 1;
+    font-family: serif;
+  }
+
+  &__stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+
+    svg {
+      color: #FFB800;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: $text-medium;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba($text-dark, 0.08);
+  }
+
+  &__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $gradient-primary;
+    @include flex-center;
+    color: $white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $text-dark;
+  }
+
+  &__location {
+    font-size: 0.85rem;
+    color: $text-faded;
+  }
+}
+

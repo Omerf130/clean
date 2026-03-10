@@ -1,0 +1,123 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background: $text-dark;
+  color: rgba($white, 0.8);
+  padding: 48px 0 24px;
+
+  &__content {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+      text-align: right;
+    }
+  }
+
+  &__brand {
+    &-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: $gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+    }
+
+    &-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba($white, 0.6);
+    }
+  }
+
+  &__links {
+    &-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $white;
+      margin-bottom: 16px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    a {
+      font-size: 0.95rem;
+      color: rgba($white, 0.6);
+      transition: color $transition-base;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  &__contact {
+    &-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: $white;
+      margin-bottom: 16px;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: rgba($white, 0.6);
+      margin-bottom: 10px;
+      justify-content: center;
+
+      @include desktop {
+        justify-content: flex-start;
+      }
+
+      svg {
+        color: $primary;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &__bottom {
+    @include container;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba($white, 0.1);
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba($white, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__credit {
+    font-size: 0.8rem;
+    color: rgba($white, 0.35);
+
+    a {
+      color: $primary;
+      font-weight: 600;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
+

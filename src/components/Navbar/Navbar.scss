@@ -1,0 +1,175 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  transition: all $transition-base;
+  background: transparent;
+
+  &.scrolled {
+    background: rgba($white, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: $shadow-sm;
+    padding: 10px 0;
+  }
+
+  &__inner {
+    @include container;
+    @include flex-between;
+    position: relative;
+    z-index: 1001;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: $gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    @include desktop {
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  &__links {
+    display: none;
+    gap: 32px;
+
+    @include desktop {
+      display: flex;
+    }
+
+    a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: $text-dark;
+      position: relative;
+      transition: color $transition-base;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: $gradient-primary;
+        transition: width $transition-base;
+      }
+
+      &:hover {
+        color: $primary;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    display: none;
+
+    @include desktop {
+      display: inline-flex;
+      @include button-base;
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      background: $gradient-primary;
+      color: $white;
+      box-shadow: 0 4px 15px rgba($primary, 0.3);
+
+      &:hover {
+        box-shadow: 0 6px 20px rgba($primary, 0.4);
+      }
+    }
+  }
+
+  &__mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    padding: 8px;
+    position: relative;
+    z-index: 1002;
+
+    @include desktop {
+      display: none;
+    }
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: $text-dark;
+      border-radius: 2px;
+      transition: all $transition-base;
+    }
+
+    &.open span {
+      background: $text-dark;
+
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+
+  &__mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba($white, 0.98);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    @include flex-center;
+    flex-direction: column;
+    gap: 24px;
+    animation: fadeIn 0.3s ease;
+
+    @include desktop {
+      display: none !important;
+    }
+
+    a {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: $text-dark;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    .navbar__cta--mobile {
+      @include button-base;
+      background: $gradient-primary;
+      color: $white;
+      font-size: 1.1rem;
+      margin-top: 16px;
+    }
+  }
+}

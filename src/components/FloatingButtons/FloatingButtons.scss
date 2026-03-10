@@ -1,0 +1,118 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.floating-buttons {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include mobile {
+    bottom: 20px;
+    left: 16px;
+  }
+}
+
+.floating-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  @include flex-center;
+  font-size: 1.6rem;
+  color: $white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all $transition-base;
+  box-shadow: $shadow-lg;
+  animation: fadeInUp 0.5s ease forwards;
+
+  @include mobile {
+    width: 54px;
+    height: 54px;
+    font-size: 1.4rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &--whatsapp {
+    background: #25D366;
+    animation-delay: 0.2s;
+    opacity: 0;
+
+    &:hover {
+      background: #20bd5a;
+      box-shadow: 0 8px 24px rgba(#25D366, 0.4);
+    }
+  }
+
+  &--phone {
+    background: $primary;
+    animation-delay: 0.4s;
+    opacity: 0;
+    display: none;
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      display: flex;
+    }
+
+    &:hover {
+      background: $primary-dark;
+      box-shadow: 0 8px 24px rgba($primary, 0.4);
+    }
+  }
+
+  // Tooltip
+  &__tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    white-space: nowrap;
+    background: $text-dark;
+    color: $white;
+    padding: 8px 16px;
+    border-radius: $radius-sm;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition-base;
+
+    .floating-btn:hover & {
+      opacity: 1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-right-color: transparent;
+      border-left-color: $text-dark;
+    }
+  }
+}
+
+// Pulse animation for WhatsApp button
+.floating-btn--whatsapp {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: rgba(#25D366, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+    z-index: -1;
+  }
+}
+

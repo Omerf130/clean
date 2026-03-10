@@ -1,0 +1,194 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.contact {
+  @include section-padding;
+  background: $bg-light;
+
+  &__wrapper {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    &-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: $text-dark;
+
+      @include desktop {
+        font-size: 2.2rem;
+      }
+    }
+
+    &-text {
+      font-size: 1.05rem;
+      color: $text-light;
+      line-height: 1.8;
+    }
+  }
+
+  &__methods {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__method {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: $white;
+    border-radius: $radius-md;
+    text-decoration: none;
+    transition: all $transition-base;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      transform: translateX(-4px);
+      box-shadow: $shadow-md;
+    }
+
+    &-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: $radius-sm;
+      @include flex-center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    &--whatsapp .contact__method-icon {
+      background: #dcf8c6;
+      color: #25D366;
+    }
+
+    &--phone .contact__method-icon {
+      background: rgba($primary, 0.1);
+      color: $primary;
+    }
+
+    &-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-label {
+      font-size: 0.85rem;
+      color: $text-faded;
+      font-weight: 400;
+    }
+
+    &-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: $text-dark;
+    }
+  }
+}
+
+.contact-form {
+  @include card;
+  padding: 36px;
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 8px;
+  }
+
+  &__subtitle {
+    font-size: 0.95rem;
+    color: $text-muted;
+    margin-bottom: 28px;
+  }
+
+  &__group {
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $text-dark;
+    margin-bottom: 8px;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid rgba($text-dark, 0.1);
+    border-radius: $radius-sm;
+    font-size: 1rem;
+    color: $text-dark;
+    background: $bg-light;
+    transition: all $transition-base;
+    direction: rtl;
+
+    &::placeholder {
+      color: $text-placeholder;
+    }
+
+    &:focus {
+      border-color: $primary;
+      background: $white;
+      box-shadow: 0 0 0 4px rgba($primary, 0.1);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__submit {
+    @include button-base;
+    width: 100%;
+    background: $gradient-primary;
+    color: $white;
+    font-size: 1.1rem;
+    padding: 16px;
+    box-shadow: 0 4px 15px rgba($primary, 0.3);
+
+    &:hover {
+      box-shadow: 0 6px 25px rgba($primary, 0.4);
+    }
+  }
+
+  &__success {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeInUp 0.5s ease;
+
+    &-icon {
+      font-size: 4rem;
+      margin-bottom: 16px;
+    }
+
+    &-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: $text-dark;
+      margin-bottom: 8px;
+    }
+
+    &-text {
+      color: $text-muted;
+    }
+  }
+}

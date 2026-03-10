@@ -1,0 +1,79 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.services {
+  @include section-padding;
+  background: $bg-light;
+
+  &__grid {
+    @include container;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @include tablet-up {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include large-desktop {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+  }
+}
+
+.service-card {
+  @include card;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: $gradient-primary;
+    transform: scaleX(0);
+    transition: transform $transition-base;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    border-radius: $radius-md;
+    @include flex-center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    color: $primary;
+    background: rgba($primary, 0.08);
+    transition: all $transition-base;
+
+    .service-card:hover & {
+      background: $gradient-primary;
+      color: $white;
+      transform: scale(1.1) rotate(-5deg);
+    }
+  }
+
+  &__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $text-dark;
+    margin-bottom: 12px;
+  }
+
+  &__description {
+    font-size: 0.95rem;
+    color: $text-muted;
+    line-height: 1.7;
+  }
+}
+

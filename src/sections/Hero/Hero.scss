@@ -1,0 +1,237 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: $gradient-hero;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba($white, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba($white, 0.06) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to top, $bg-light, transparent);
+  }
+
+  // Decorative shapes
+  &__shapes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      background: $white;
+
+      &--1 {
+        width: 300px;
+        height: 300px;
+        top: 10%;
+        left: 5%;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      &--2 {
+        width: 200px;
+        height: 200px;
+        top: 60%;
+        right: 10%;
+        animation: float 6s ease-in-out infinite reverse;
+      }
+
+      &--3 {
+        width: 150px;
+        height: 150px;
+        bottom: 20%;
+        left: 30%;
+        animation: float 10s ease-in-out infinite;
+      }
+
+      &--4 {
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        right: 30%;
+        animation: float 7s ease-in-out infinite reverse;
+      }
+    }
+  }
+
+  &__content {
+    @include container;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 100px 20px 60px;
+
+    @include desktop {
+      padding: 0 20px;
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba($white, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 8px 20px;
+    border-radius: $radius-xl;
+    color: $white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s ease both;
+    border: 1px solid rgba($white, 0.2);
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: $white;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease both;
+    animation-delay: 0.2s;
+
+    @include tablet-up {
+      font-size: 3.5rem;
+    }
+
+    @include desktop {
+      font-size: 4rem;
+    }
+
+    span {
+      display: block;
+      background: linear-gradient(135deg, $white 0%, rgba($white, 0.8) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: rgba($white, 0.9);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+    animation: fadeInUp 0.8s ease both;
+    animation-delay: 0.4s;
+
+    @include desktop {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    animation: fadeInUp 0.8s ease both;
+    animation-delay: 0.6s;
+
+    @include tablet-up {
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+
+  &__btn {
+    @include button-base;
+    font-size: 1rem;
+    padding: 14px 32px;
+
+    @include desktop {
+      font-size: 1.1rem;
+      padding: 16px 40px;
+    }
+
+    &--primary {
+      background: $white;
+      color: $primary;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &--secondary {
+      background: rgba($white, 0.15);
+      color: $white;
+      border: 2px solid rgba($white, 0.3);
+      backdrop-filter: blur(10px);
+
+      &:hover {
+        background: rgba($white, 0.25);
+        border-color: rgba($white, 0.5);
+      }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 40px;
+    animation: fadeInUp 0.8s ease both;
+    animation-delay: 0.8s;
+
+    @include desktop {
+      gap: 40px;
+      margin-top: 60px;
+    }
+  }
+
+  &__stat {
+    text-align: center;
+    color: $white;
+
+    &-number {
+      font-size: 1.6rem;
+      font-weight: 800;
+      display: block;
+
+      @include desktop {
+        font-size: 2.5rem;
+      }
+    }
+
+    &-label {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      font-weight: 400;
+
+      @include desktop {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'animations';
+
+// Reset & Base
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $font-family;
+  color: $text-dark;
+  background-color: $bg-light;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: $font-family;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, textarea {
+  font-family: $font-family;
+  outline: none;
+}
+
+// Utility classes
+.container {
+  @include container;
+}
+
+.section-title {
+  @include section-title;
+}
+
+.section-subtitle {
+  @include section-subtitle;
+}
+
+// Scroll reveal animation class
+.reveal {
+  @include fade-in-up;
+}
+
+// Selection
+::selection {
+  background-color: rgba($primary, 0.2);
+  color: $text-dark;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $secondary;
+  border-radius: 4px;
+
+  &:hover {
+    background: $primary;
+  }
+}
+
