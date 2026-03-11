@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'צור קשר', href: '#contact' },
 ];
 
-const WHATSAPP_LINK = 'https://wa.me/9720525237600?text=היי, אשמח לקבל הצעת מחיר';
+const WHATSAPP_LINK = 'https://wa.me/9720526862924?text=היי, אשמח לקבל הצעת מחיר';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

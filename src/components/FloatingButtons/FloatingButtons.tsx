@@ -1,7 +1,7 @@
 import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import './FloatingButtons.scss';
 
-const WHATSAPP_LINK = 'https://wa.me/9720525237600?text=היי, אשמח לקבל הצעת מחיר';
+const WHATSAPP_LINK = 'https://wa.me/9720526862924?text=היי, אשמח לקבל הצעת מחיר';
 
 const FloatingButtons = () => {
   return (
@@ -19,7 +19,7 @@ const FloatingButtons = () => {
 
       <a
         className="floating-btn floating-btn--phone"
-        href="tel:+9720525237600"
+        href="tel:+9720526862924"
         aria-label="התקשר"
       >
         <FaPhone />

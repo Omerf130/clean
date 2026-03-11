@@ -19,7 +19,7 @@ const cities = [
   'פרדס חנה',
 ];
 
-const WHATSAPP_LINK = 'https://wa.me/9720525237600?text=היי, אשמח לקבל הצעת מחיר';
+const WHATSAPP_LINK = 'https://wa.me/9720526862924?text=היי, אשמח לקבל הצעת מחיר';
 
 const ServiceArea = () => {
   return (

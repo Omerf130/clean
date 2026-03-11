@@ -36,11 +36,11 @@ const Footer = () => {
           <h4 className="footer__contact-title">יצירת קשר</h4>
           <div className="footer__contact-item">
             <FaPhone />
-            <span>052-523-7600</span>
+            <span>052-686-2924</span>
           </div>
           <div className="footer__contact-item">
             <FaWhatsapp />
-            <span>וואטסאפ – 052-523-7600</span>
+            <span>וואטסאפ – 052-686-2924</span>
           </div>
           <div className="footer__contact-item">
             <MdLocationOn />

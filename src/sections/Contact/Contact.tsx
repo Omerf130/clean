@@ -3,8 +3,8 @@ import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import { MdSend } from 'react-icons/md';
 import './Contact.scss';
 
-const WHATSAPP_LINK = 'https://wa.me/9720525237600?text=היי, אשמח לקבל הצעת מחיר';
-const PHONE_NUMBER = '052-523-7600';
+const WHATSAPP_LINK = 'https://wa.me/9720526862924?text=היי, אשמח לקבל הצעת מחיר';
+const PHONE_NUMBER = '052-686-2924';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -19,7 +19,7 @@ const Contact = () => {
 
     // Build WhatsApp message from form data
     const text = `שלום, שמי ${formData.name}.\nטלפון: ${formData.phone}\n${formData.message}`;
-    const waLink = `https://wa.me/9720525237600?text=${encodeURIComponent(text)}`;
+    const waLink = `https://wa.me/9720526862924?text=${encodeURIComponent(text)}`;
     window.open(waLink, '_blank');
 
     setSubmitted(true);
@@ -60,7 +60,7 @@ const Contact = () => {
               </div>
             </a>
 
-            <a className="contact__method contact__method--phone" href="tel:+9720525237600">
+            <a className="contact__method contact__method--phone" href="tel:+9720526862924">
               <div className="contact__method-icon">
                 <FaPhone />
               </div>
@@ -101,7 +101,7 @@ const Contact = () => {
                   className="contact-form__input"
                   id="phone"
                   type="tel"
-                  placeholder="052-523-7600"
+                  placeholder="052-686-2924"
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}

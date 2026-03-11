@@ -2,7 +2,7 @@ import { FaWhatsapp, FaPhone } from 'react-icons/fa';
 import { MdStar } from 'react-icons/md';
 import './Hero.scss';
 
-const WHATSAPP_LINK = 'https://wa.me/9720525237600?text=היי, אשמח לקבל הצעת מחיר';
+const WHATSAPP_LINK = 'https://wa.me/9720526862924?text=היי, אשמח לקבל הצעת מחיר';
 
 const Hero = () => {
   return (
@@ -40,7 +40,7 @@ const Hero = () => {
             <FaWhatsapp />
             קבל הצעת מחיר בוואטסאפ
           </a>
-          <a className="hero__btn hero__btn--secondary" href="tel:+9720525237600">
+          <a className="hero__btn hero__btn--secondary" href="tel:+9720526862924">
             <FaPhone />
             התקשר עכשיו
           </a>
